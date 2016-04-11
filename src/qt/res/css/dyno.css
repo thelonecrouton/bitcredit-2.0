@@ -1,0 +1,124 @@
+QMainWindow 
+{
+color: white;
+background-color: #232323;
+}
+
+QWidget
+{
+font-family: Arial;
+color: white;
+background-color: #232323;
+}
+
+QPushButton
+{
+color: white;
+background-color: #323232;
+border: none;
+}
+QPushButton:hover
+{
+color: white;
+background-color: #444444;
+border: none;
+}
+
+
+QLineEdit
+{
+color: #ffffff;
+background-color: #444444;
+border: none;
+}
+
+/*   Header  */
+#bframe
+{
+border: none;
+color: white;
+background-color: #232323;
+}
+#Logo
+{
+background-image: url('/home/stu/test3/logo5.png');
+background-repeat: none; 
+background-position: center;
+}
+#labelHeaderBalance
+{
+font: 16pt;
+background-color: #232323;
+color: white;
+border: 1px solid #ff1a00;
+qproperty-alignment: AlignCenter;
+}
+
+
+/*    Toolbar    */
+
+#toolbarwidget
+{
+background-color: #232323;
+}
+
+#bover
+{
+background-color: #323232;
+color: #ffffff;
+border: none;
+}
+#bover::hover
+{
+background-color: #444444;
+}
+
+#bhistory
+{
+background-color: #323232;
+color: #ffffff;
+border: none;
+}
+#bhistory::hover
+{
+background-color: #444444;
+}
+
+#bsend
+{
+background-color: #323232;
+color: #ffffff;
+border: none;
+}
+#bsend::hover
+{
+background-color: #444444;
+}
+
+#brec
+{
+background-color: #323232;
+color: #ffffff;
+border: none;
+}
+#brec::hover
+{
+background-color: #444444;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

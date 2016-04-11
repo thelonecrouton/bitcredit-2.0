@@ -41,6 +41,7 @@
 #include <QDateTime>
 #include <QDesktopWidget>
 #include <QDragEnterEvent>
+#include <QFile>
 #include <QListWidget>
 #include <QMenuBar>
 #include <QMessageBox>
@@ -117,7 +118,16 @@ BitcreditGUI::BitcreditGUI(const PlatformStyle *platformStyle, const NetworkStyl
     spinnerFrame(0),
     platformStyle(platformStyle)
 {
-    GUIUtil::restoreWindowGeometry("nWindow", QSize(850, 550), this);
+    setFixedSize(850, 600);
+    //setWindowFlags(Qt::FramelessWindowHint);
+    GUIUtil::restoreWindowGeometry("nWindow", QSize(850, 600), this);
+
+    // load stylesheet
+    QFile qss(":css/dyno");
+    qss.open(QFile::ReadOnly);
+    qApp->setStyleSheet(qss.readAll());
+    qss.close();
+
 
     QString windowTitle = tr(PACKAGE_NAME) + " - ";
 #ifdef ENABLE_WALLET
@@ -154,7 +164,10 @@ BitcreditGUI::BitcreditGUI(const PlatformStyle *platformStyle, const NetworkStyl
     {
         /** Create wallet frame and make it the central widget */
         walletFrame = new WalletFrame(platformStyle, this);
-        setCentralWidget(walletFrame);
+        //setCentralWidget(walletFrame);
+        walletFrame->setFixedWidth(850);
+        walletFrame->setFixedHeight(400);
+        walletFrame->move(0,170);        
     } else
 #endif // ENABLE_WALLET
     {
@@ -166,6 +179,28 @@ BitcreditGUI::BitcreditGUI(const PlatformStyle *platformStyle, const NetworkStyl
 
     // Accept D&D of URIs
     setAcceptDrops(true);
+
+    // Header UI elements
+
+    // background widget
+    bframe = new QWidget(this);
+    bframe->setFixedHeight(100);
+    bframe->setFixedWidth(850);
+    bframe->setObjectName("bframe");
+    bframe->move(0,30);
+    // logo
+    Logo = new QLabel(bframe);
+    Logo->move(10, 0);
+    Logo->setFixedWidth(300);
+    Logo->setFixedHeight(100);
+    Logo->setObjectName("Logo");
+    // balance label    
+    labelHeaderBalance = new QLabel(bframe);
+    labelHeaderBalance->move(340, 0);
+    labelHeaderBalance->setFixedWidth(500);
+    labelHeaderBalance->setFixedHeight(100);
+    labelHeaderBalance->setText("Available Balance:\n");
+    labelHeaderBalance->setObjectName("labelHeaderBalance");
 
     // Create actions for the toolbar, menu bar and tray/dock icon
     // Needs walletFrame to be initialized
@@ -398,6 +433,7 @@ void BitcreditGUI::createMenuBar()
     QMenu *file = appMenuBar->addMenu(tr("&File"));
     if(walletFrame)
     {
+
         file->addAction(openAction);
         file->addAction(backupWalletAction);
         file->addAction(signMessageAction);
@@ -433,6 +469,50 @@ void BitcreditGUI::createToolBars()
 {
     if(walletFrame)
     {
+        // I prefer making my own 'toolbars' as it gives QT less leeway to bugger up placement
+
+        // place toolbar items in our own widget so we can position it where we want
+        QWidget *toolbarwidget = new QWidget(this);
+        toolbarwidget->setFixedWidth(850);
+        toolbarwidget->setFixedHeight(30);
+        toolbarwidget->move(0, 140);
+        toolbarwidget->setObjectName("toolbarwidget");
+
+        // put buttons in toolbarwidget
+        
+        QPushButton *bover = new QPushButton(toolbarwidget);
+        bover->setFixedWidth(100);
+        bover->setFixedHeight(30);
+        bover->setObjectName("bover");
+        bover->setText("Overview");
+        bover->move(10,0);
+        connect(bover, SIGNAL(clicked()), this, SLOT(gotoOverviewPage()));
+
+        QPushButton *bhistory = new QPushButton(toolbarwidget);
+        bhistory->setFixedWidth(100);
+        bhistory->setFixedHeight(30);
+        bhistory->setObjectName("bhistory");
+        bhistory->setText("Transactions");
+        bhistory->move(120,0);
+        connect(bhistory, SIGNAL(clicked()), this, SLOT(gotoHistoryPage()));  
+
+        QPushButton *bsend = new QPushButton(toolbarwidget);
+        bsend->setFixedWidth(100);
+        bsend->setFixedHeight(30);
+        bsend->setObjectName("bsend");
+        bsend->setText("Send");
+        bsend->move(230,0);
+        connect(bsend, SIGNAL(clicked()), this, SLOT(gotoSendCoinsPage()));
+                
+        QPushButton *brec = new QPushButton(toolbarwidget);
+        brec->setFixedWidth(100);
+        brec->setFixedHeight(30);
+        brec->setObjectName("brec");
+        brec->setText("Receive");
+        brec->move(340, 0);
+        connect(brec, SIGNAL(clicked()), this, SLOT(gotoReceiveCoinsPage()));
+        
+        /*
         QToolBar *toolbar = addToolBar(tr("Tabs toolbar"));
         toolbar->setMovable(false);
         toolbar->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
@@ -441,6 +521,7 @@ void BitcreditGUI::createToolBars()
         toolbar->addAction(receiveCoinsAction);
         toolbar->addAction(historyAction);
         overviewAction->setChecked(true);
+        */
     }
 }
 

@@ -12,6 +12,7 @@
 #include "amount.h"
 
 #include <QLabel>
+#include <QPushButton>
 #include <QMainWindow>
 #include <QMap>
 #include <QMenu>
@@ -57,6 +58,8 @@ public:
         The client model represents the part of the core that communicates with the P2P network, and is wallet-agnostic.
     */
     void setClientModel(ClientModel *clientModel);
+    
+    QLabel *labelHeaderBalance;
 
 #ifdef ENABLE_WALLET
     /** Set the wallet model.
@@ -79,6 +82,16 @@ protected:
 private:
     ClientModel *clientModel;
     WalletFrame *walletFrame;
+    
+    QWidget *bframe;
+    QLabel *Logo;
+    //QLabel *labelBalance;
+    
+    QWidget *toolbarwidget;
+    QPushButton *bover;
+    QPushButton *bhistory;
+    QPushButton *bsend;
+    QPushButton *brec;
 
     UnitDisplayStatusBarControl *unitDisplayControl;
     QLabel *labelEncryptionIcon;
