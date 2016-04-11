@@ -58,8 +58,7 @@ public:
         The client model represents the part of the core that communicates with the P2P network, and is wallet-agnostic.
     */
     void setClientModel(ClientModel *clientModel);
-    
-    QLabel *labelHeaderBalance;
+
 
 #ifdef ENABLE_WALLET
     /** Set the wallet model.
@@ -82,10 +81,9 @@ protected:
 private:
     ClientModel *clientModel;
     WalletFrame *walletFrame;
-    
-    QWidget *bframe;
+
     QLabel *Logo;
-    //QLabel *labelBalance;
+    QLabel *labelHeaderBalance;
     
     QWidget *toolbarwidget;
     QPushButton *bover;
@@ -135,6 +133,9 @@ private:
     int spinnerFrame;
 
     const PlatformStyle *platformStyle;
+
+    // change header balance on signal from overviewpage
+    void wehavecontact();
 
     /** Create the main UI actions. */
     void createActions();

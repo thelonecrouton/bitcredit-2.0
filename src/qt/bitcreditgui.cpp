@@ -182,21 +182,15 @@ BitcreditGUI::BitcreditGUI(const PlatformStyle *platformStyle, const NetworkStyl
 
     // Header UI elements
 
-    // background widget
-    bframe = new QWidget(this);
-    bframe->setFixedHeight(100);
-    bframe->setFixedWidth(850);
-    bframe->setObjectName("bframe");
-    bframe->move(0,30);
     // logo
-    Logo = new QLabel(bframe);
-    Logo->move(10, 0);
+    Logo = new QLabel(this);
+    Logo->move(0, 30);
     Logo->setFixedWidth(300);
     Logo->setFixedHeight(100);
     Logo->setObjectName("Logo");
     // balance label    
-    labelHeaderBalance = new QLabel(bframe);
-    labelHeaderBalance->move(340, 0);
+    labelHeaderBalance = new QLabel(this);
+    labelHeaderBalance->move(340, 30);
     labelHeaderBalance->setFixedWidth(500);
     labelHeaderBalance->setFixedHeight(100);
     labelHeaderBalance->setText("Available Balance:\n");
@@ -290,6 +284,13 @@ BitcreditGUI::~BitcreditGUI()
 
     delete rpcConsole;
 }
+
+void BitcreditGUI::wehavecontact()
+{
+    this->labelHeaderBalance->setText("Available Balance:\nWE HAVE A SIGNAL FROM OVERVIEWPAGE");
+    gotoSendCoinsPage();
+}
+
 
 void BitcreditGUI::createActions()
 {

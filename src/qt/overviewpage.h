@@ -42,6 +42,13 @@ public Q_SLOTS:
 
 Q_SIGNALS:
     void transactionClicked(const QModelIndex &index);
+    void btxclicked();
+    void bsendclicked();
+    void brecclicked();
+    void bos1clicked();
+    void bos2clicked();
+    
+    void headerbalance();
 
 private:
     Ui::OverviewPage *ui;
@@ -62,6 +69,14 @@ private Q_SLOTS:
     void handleTransactionClicked(const QModelIndex &index);
     void updateAlerts(const QString &warnings);
     void updateWatchOnlyLabels(bool showWatchOnly);
+    
+    void emitbtxclicked();
+    void emitbsendclicked();
+    void emitbrecclicked();
+    void emitbos1clicked();
+    void emitbos2clicked();
+    
+    void emitbalancesignal();
 };
 
 #endif // BITCREDIT_QT_OVERVIEWPAGE_H
