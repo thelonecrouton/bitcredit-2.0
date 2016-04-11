@@ -87,9 +87,9 @@ private:
     
     QWidget *toolbarwidget;
     QPushButton *bover;
-    QPushButton *bhistory;
-    QPushButton *bsend;
-    QPushButton *brec;
+    //QPushButton *bhistory;
+    //QPushButton *bsend;
+    //QPushButton *brec;
 
     UnitDisplayStatusBarControl *unitDisplayControl;
     QLabel *labelEncryptionIcon;

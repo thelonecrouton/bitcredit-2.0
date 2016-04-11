@@ -167,7 +167,7 @@ BitcreditGUI::BitcreditGUI(const PlatformStyle *platformStyle, const NetworkStyl
         //setCentralWidget(walletFrame);
         walletFrame->setFixedWidth(850);
         walletFrame->setFixedHeight(400);
-        walletFrame->move(0,170);        
+        walletFrame->move(0,140);        
     } else
 #endif // ENABLE_WALLET
     {
@@ -466,17 +466,16 @@ void BitcreditGUI::createMenuBar()
     help->addAction(aboutQtAction);
 }
 
-void BitcreditGUI::createToolBars()
+void BitcreditGUI::createToolBars()  // this is going to be our 'Back' or 'Return to Menu' button
 {
     if(walletFrame)
     {
-        // I prefer making my own 'toolbars' as it gives QT less leeway to bugger up placement
 
         // place toolbar items in our own widget so we can position it where we want
         QWidget *toolbarwidget = new QWidget(this);
         toolbarwidget->setFixedWidth(850);
         toolbarwidget->setFixedHeight(30);
-        toolbarwidget->move(0, 140);
+        toolbarwidget->move(0, 540);
         toolbarwidget->setObjectName("toolbarwidget");
 
         // put buttons in toolbarwidget
@@ -488,7 +487,7 @@ void BitcreditGUI::createToolBars()
         bover->setText("Overview");
         bover->move(10,0);
         connect(bover, SIGNAL(clicked()), this, SLOT(gotoOverviewPage()));
-
+/*
         QPushButton *bhistory = new QPushButton(toolbarwidget);
         bhistory->setFixedWidth(100);
         bhistory->setFixedHeight(30);
@@ -512,7 +511,7 @@ void BitcreditGUI::createToolBars()
         brec->setText("Receive");
         brec->move(340, 0);
         connect(brec, SIGNAL(clicked()), this, SLOT(gotoReceiveCoinsPage()));
-        
+*/        
         /*
         QToolBar *toolbar = addToolBar(tr("Tabs toolbar"));
         toolbar->setMovable(false);
