@@ -14,7 +14,7 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: #444444;</string>
+   <string notr="true"/>
   </property>
   <layout class="QVBoxLayout" name="topLayout">
    <item>
@@ -100,7 +100,7 @@
           <string>History</string>
          </property>
          <property name="flat">
-          <bool>true</bool>
+          <bool>false</bool>
          </property>
         </widget>
        </item>
@@ -158,7 +158,7 @@
           <string>OtherStuff2</string>
          </property>
          <property name="flat">
-          <bool>true</bool>
+          <bool>false</bool>
          </property>
         </widget>
        </item>

@@ -190,8 +190,8 @@ BitcreditGUI::BitcreditGUI(const PlatformStyle *platformStyle, const NetworkStyl
     Logo->setObjectName("Logo");
     // balance label    
     labelHeaderBalance = new QLabel(this);
-    labelHeaderBalance->move(340, 30);
-    labelHeaderBalance->setFixedWidth(500);
+    labelHeaderBalance->move(320, 30);
+    labelHeaderBalance->setFixedWidth(520);
     labelHeaderBalance->setFixedHeight(100);
     labelHeaderBalance->setText("Available Balance:\n");
     labelHeaderBalance->setObjectName("labelHeaderBalance");
@@ -481,10 +481,10 @@ void BitcreditGUI::createToolBars()  // this is going to be our 'Back' or 'Retur
         // put buttons in toolbarwidget
         
         QPushButton *bover = new QPushButton(toolbarwidget);
-        bover->setFixedWidth(100);
-        bover->setFixedHeight(30);
+        bover->setFixedWidth(46);
+        bover->setFixedHeight(27);
         bover->setObjectName("bover");
-        bover->setText("Overview");
+        //bover->setText("Overview");
         bover->move(10,0);
         connect(bover, SIGNAL(clicked()), this, SLOT(gotoOverviewPage()));
 /*

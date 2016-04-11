@@ -11,18 +11,7 @@ color: white;
 background-color: #232323;
 }
 
-QPushButton
-{
-color: white;
-background-color: #323232;
-border: none;
-}
-QPushButton:hover
-{
-color: white;
-background-color: #444444;
-border: none;
-}
+
 
 
 QLineEdit
@@ -32,13 +21,12 @@ background-color: #444444;
 border: none;
 }
 
+
+
+
+
 /*   Header  */
-#bframe
-{
-border: none;
-color: white;
-background-color: #232323;
-}
+
 #Logo
 {
 background-image: url('/home/stu/test3/logo5.png');
@@ -55,6 +43,8 @@ qproperty-alignment: AlignCenter;
 }
 
 
+
+
 /*    Toolbar    */
 
 #toolbarwidget
@@ -62,51 +52,114 @@ qproperty-alignment: AlignCenter;
 background-color: #232323;
 }
 
+
+
+
+
+/* OverviewPage (MENU) buttons)   */
+
 #bover
 {
+font: 12pt;
 background-color: #323232;
 color: #ffffff;
 border: none;
+background-image: url('/home/stu/test3/menu3.png');
 }
-#bover::hover
+#bover:hover
 {
 background-color: #444444;
 }
 
-#bhistory
+#btx
 {
+font: 12pt;
 background-color: #323232;
 color: #ffffff;
 border: none;
 }
-#bhistory::hover
+#btx:hover
 {
 background-color: #444444;
 }
 
 #bsend
 {
+font: 12pt;
 background-color: #323232;
 color: #ffffff;
 border: none;
 }
-#bsend::hover
+#bsend:hover
 {
 background-color: #444444;
 }
 
 #brec
 {
+font: 12pt;
 background-color: #323232;
 color: #ffffff;
 border: none;
 }
-#brec::hover
+#brec:hover
+{
+background-color: #444444;
+}
+
+#brec
+{
+font: 12pt;
+background-color: #323232;
+color: #ffffff;
+border: none;
+}
+#brec:hover
+{
+background-color: #444444;
+}
+
+#bos1
+{
+font: 12pt;
+background-color: #323232;
+color: #ffffff;
+border: none;
+}
+#bos1:hover
+{
+background-color: #444444;
+}
+
+#bos2
+{
+font: 12pt;
+background-color: #323232;
+color: #ffffff;
+border: none;
+}
+#bos2:hover
 {
 background-color: #444444;
 }
 
 
+
+
+
+
+QPushButton
+{
+color: white;
+background-color: #323232;
+border: none;
+}
+QPushButton:hover
+{
+color: white;
+background-color: #444444;
+border: none;
+}
 
 
 
